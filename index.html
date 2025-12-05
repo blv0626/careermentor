@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Career Mentor - University Students</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="glow-text">MYCAREER AI</h1>
+        <p>NAVIGATE YOUR FUTURE WITH INTELLIGENCE</p>
+      </header>
+
+      <div class="card">
+        <div class="step-indicator">
+          <div class="step active" id="step1">1</div>
+          <div class="step" id="step2">2</div>
+          <div class="step" id="step3">3</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Section 1: Profile Information -->
+        <div class="section active" id="section1">
+          <h2>TELL US ABOUT YOURSELF</h2>
+          <form id="profileForm">
+            <div class="grid-2">
+              <div class="form-group">
+                <label>FULL NAME</label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>UNIVERSITY</label>
+                <input
+                  type="text"
+                  id="university"
+                  placeholder="Your university name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label>MAJOR / FIELD OF STUDY</label>
+                <input
+                  type="text"
+                  id="major"
+                  placeholder="e.g., Computer Science, Business"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>CURRENT YEAR</label>
+                <select id="year" required>
+                  <option value="">Select year</option>
+                  <option value="1st">1st Year</option>
+                  <option value="2nd">2nd Year</option>
+                  <option value="3rd">3rd Year</option>
+                  <option value="4th">4th Year</option>
+                  <option value="postgrad">Postgraduate</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>EMAIL ADDRESS</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="your.email@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>ABOUT YOU</label>
+              <textarea
+                id="bio"
+                placeholder="Tell us about yourself, your interests, and goals..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="button-group">
+              <button type="button" class="btn-primary" onclick="nextSection()">
+                CONTINUE →
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Section 2: Skills & Interests -->
+        <div class="section" id="section2">
+          <h2>YOUR SKILLS & INTERESTS</h2>
+          <form id="skillsForm">
+            <div class="form-group">
+              <label>SELECT YOUR TOP SKILLS</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="skill1"
+                    value="programming"
+                    onchange="trackSkills()"
+                  />
+                  <label for="skill1">Programming</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="skill2"
+                    value="data_analysis"
+                    onchange="trackSkills()"
+                  />
+                  <label for="skill2">Data Analysis</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="skill3"
+                    value="communication"
+                    onchange="trackSkills()"
+                  />
+                  <label for="skill3">Communication</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="skill4"
+                    value="leadership"
+                    onchange="trackSkills()"
+                  />
+                  <label for="skill4">Leadership</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="skill5"
+                    value="design"
+                    onchange="trackSkills()"
+                  />
+                  <label for="skill5">Design/Creative</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="skill6"
+                    value="project_management"
+                    onchange="trackSkills()"
+                  />
+                  <label for="skill6">Project Management</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>SELECT YOUR CAREER INTERESTS</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="interest1"
+                    value="tech"
+                    onchange="trackInterests()"
+                  />
+                  <label for="interest1">Technology</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="interest2"
+                    value="finance"
+                    onchange="trackInterests()"
+                  />
+                  <label for="interest2">Finance</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="interest3"
+                    value="healthcare"
+                    onchange="trackInterests()"
+                  />
+                  <label for="interest3">Healthcare</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="interest4"
+                    value="education"
+                    onchange="trackInterests()"
+                  />
+                  <label for="interest4">Education</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="interest5"
+                    value="business"
+                    onchange="trackInterests()"
+                  />
+                  <label for="interest5">Business</label>
+                </div>
+                <div class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="interest6"
+                    value="environment"
+                    onchange="trackInterests()"
+                  />
+                  <label for="interest6">Environment</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <button
+                type="button"
+                class="btn-secondary"
+                onclick="prevSection()"
+              >
+                ← BACK
+              </button>
+              <button type="button" class="btn-primary" onclick="nextSection()">
+                CONTINUE →
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Section 3: Experience & Goals -->
+        <div class="section" id="section3">
+          <h2>EXPERIENCE & CAREER GOALS</h2>
+          <form id="goalsForm">
+            <div class="form-group">
+              <label>WORK EXPERIENCE (OPTIONAL)</label>
+              <textarea
+                id="experience"
+                placeholder="Describe any internships, projects, or relevant experience..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>IDEAL JOB ENVIRONMENT</label>
+              <select id="environment" required>
+                <option value="">Select environment</option>
+                <option value="startup">Startup</option>
+                <option value="corporate">Corporate</option>
+                <option value="nonprofit">Non-profit</option>
+                <option value="freelance">Freelance/Self-employed</option>
+                <option value="government">Government</option>
+                <option value="academia">Academia/Research</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>PREFERRED SALARY RANGE (ANNUAL - NAIRA)</label>
+              <select id="salary" required>
+                <option value="">Select range</option>
+                <option value="entry">Entry-level (100k - 500k)</option>
+                <option value="mid">Mid-level (500k - 1M)</option>
+                <option value="senior">Senior (1M - 5M)</option>
+                <option value="no_preference">No preference</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>CAREER GOAL (5-YEAR VISION)</label>
+              <textarea
+                id="goals"
+                placeholder="Where do you see yourself in 5 years?"
+                required
+              ></textarea>
+            </div>
+
+            <div class="button-group">
+              <button
+                type="button"
+                class="btn-secondary"
+                onclick="prevSection()"
+              >
+                ← BACK
+              </button>
+              <button
+                type="button"
+                class="btn-primary"
+                onclick="generateRecommendations()"
+              >
+                GENERATE RECOMMENDATIONS
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results" id="resultsSection">
+          <div class="success-message">
+            PROFILE ANALYZED - HERE ARE YOUR PERSONALIZED RECOMMENDATIONS
+          </div>
+
+          <div id="recommendationsContainer"></div>
+
+          <div class="button-group">
+            <button type="button" class="btn-secondary" onclick="resetApp()">
+              START OVER
+            </button>
+            <button
+              type="button"
+              class="btn-primary"
+              onclick="downloadResults()"
+            >
+              DOWNLOAD REPORT →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
